@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#251154" />
+  <meta name="description" content="Portal hasil ujian interaktif untuk mata pelajaran Bahasa Indonesia dan Koding Kecerdasan Artifisial." />
+  <title>Portal Hasil Ujian · Ruang Nilai</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="config.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <div class="background" aria-hidden="true"><div class="glow glow-one"></div><div class="glow glow-two"></div><div class="glow glow-three"></div><div class="mesh"></div></div>
+
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#beranda" aria-label="Ruang Nilai, kembali ke halaman awal" id="brandHome">
+        <span class="brand-icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none"><path d="M5 8.7c4.5-2.2 8-1.7 11 1.1 3-2.8 6.5-3.3 11-1.1v15c-4.5-2.2-8-1.7-11 1.1-3-2.8-6.5-3.3-11-1.1v-15Z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M16 10v14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="m21.7 15 2 2-2 2m-11.4-4-2 2 2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="brand-text"><strong>ruang<span>nilai.</span></strong><small>PORTAL HASIL UJIAN</small></span>
+      </a>
+      <div class="topbar-right">
+        <span class="live-pill" id="topStatus"><span class="status-dot"></span><span id="topStatusText">Mode pratinjau</span></span>
+        <span class="topbar-divider" aria-hidden="true"></span>
+        <span class="year-pill"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5" stroke="currentColor" stroke-width="1.7"/><path d="M7.5 3.5v4m9-4v4M3.5 10h17" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg> Tahun ajaran <strong>2026/2027</strong></span>
+      </div>
+    </header>
+
+    <main id="beranda">
+      <section class="hero" aria-labelledby="heroTitle">
+        <div class="hero-copy">
+          <div class="hero-eyebrow"><span class="eyebrow-star">✦</span> SELAMAT DATANG DI RUANG NILAI</div>
+          <h1 id="heroTitle">Lihat hasil ujian,<br /><span>tanpa ribet.</span> <span class="hero-spark" aria-hidden="true">✳</span></h1>
+          <p>Pilih mata pelajaran dan kelasmu untuk melihat hasil ujian. Semua informasi disajikan dengan jelas, mudah, dan nyaman diakses.</p>
+          <div class="hero-labels"><span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Mudah diakses</span><span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v9l6 3" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.9"/></svg> Data diperbarui berkala</span></div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+          <span class="tiny-spark spark-one">✦</span><span class="tiny-spark spark-two">✳</span>
+          <div class="art-note art-note-back"><span class="note-dash"></span><span class="note-dash short"></span><span class="note-dash"></span></div>
+          <div class="art-note art-note-main"><span class="note-sticker">A+</span><div class="note-check"><svg viewBox="0 0 24 24" fill="none"><path d="m5 12 5 5L20 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="note-dash dark"></span><span class="note-dash short dark"></span><span class="note-dash dark"></span></div>
+          <div class="art-float">100 <span>★</span></div>
+        </div>
+      </section>
+
+      <section class="workspace" aria-label="Portal nilai siswa">
+        <div class="stepper" aria-label="Tahapan melihat nilai">
+          <div class="step active" id="stepOne"><span class="step-number">01</span><span>Mata pelajaran</span></div>
+          <div class="step-line"></div>
+          <div class="step" id="stepTwo"><span class="step-number">02</span><span>Pilih kelas</span></div>
+          <div class="step-line"></div>
+          <div class="step" id="stepThree"><span class="step-number">03</span><span>Hasil ujian</span></div>
+        </div>
+
+        <section id="subjectSection" class="content-section" aria-labelledby="subjectHeading">
+          <div class="section-header"><div><span class="section-kicker">LANGKAH PERTAMA</span><h2 id="subjectHeading">Mau lihat nilai apa?</h2><p>Silakan pilih mata pelajaran terlebih dahulu.</p></div><div class="section-doodle" aria-hidden="true">✳</div></div>
+          <div class="subject-grid">
+            <button class="subject-card indonesian" type="button" data-subject="BIND" aria-label="Pilih Bahasa Indonesia">
+              <span class="subject-icon"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><path d="M10 13c8-3.5 16-3 22 2.5 6-5.5 14-6 22-2.5v35.5c-8-3.5-16-3-22 2.5-6-5.5-14-6-22-2.5V13Z" stroke="currentColor" stroke-width="3.2" stroke-linejoin="round"/><path d="M32 16v35M16 22c4.5-1 7.9-.7 11 1m-11 7c4.5-1 7.9-.7 11 1m10-8c3.5-1.6 7-2 11-.5m-11 9c3.5-1.6 7-2 11-.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></span>
+              <span class="subject-meta">MATA PELAJARAN 01</span><strong>Bahasa<br />Indonesia</strong><span class="subject-bottom"><span>Lihat hasil ujian</span><span class="circle-arrow" aria-hidden="true">↗</span></span>
+            </button>
+            <button class="subject-card coding" type="button" data-subject="KKA" aria-label="Pilih Koding Kecerdasan Artifisial">
+              <span class="subject-icon"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><rect x="10" y="12" width="44" height="36" rx="6" stroke="currentColor" stroke-width="3.2"/><path d="m25 25-7 6 7 6m14-12 7 6-7 6m-3-16-8 21M23 54h18" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="subject-meta">MATA PELAJARAN 02</span><strong>Koding &amp;<br />Kecerdasan Artifisial</strong><span class="subject-bottom"><span>Lihat hasil ujian</span><span class="circle-arrow" aria-hidden="true">↗</span></span>
+            </button>
+          </div>
+        </section>
+
+        <section id="classSection" class="content-section hidden" aria-labelledby="classHeading">
+          <div class="back-row"><button class="back-link" id="backToSubjects" type="button"><span aria-hidden="true">←</span> Ganti mata pelajaran</button><div class="selected-subject-pill" id="selectedSubjectPill">Bahasa Indonesia</div></div>
+          <div class="section-header"><div><span class="section-kicker">LANGKAH KEDUA</span><h2 id="classHeading">Sekarang, pilih kelasmu.</h2><p>Hasil nilai akan ditampilkan berdasarkan kelas yang kamu pilih.</p></div></div>
+          <div class="class-grid">
+            <button type="button" class="class-card" data-class="7A"><span class="class-illustration class-a">7<span>A</span></span><span class="class-copy"><small>KELAS</small><strong>VII A</strong><span>Lihat nilai kelas 7 A <b aria-hidden="true">↗</b></span></span></button>
+            <button type="button" class="class-card" data-class="7B"><span class="class-illustration class-b">7<span>B</span></span><span class="class-copy"><small>KELAS</small><strong>VII B</strong><span>Lihat nilai kelas 7 B <b aria-hidden="true">↗</b></span></span></button>
+          </div>
+        </section>
+
+        <section id="resultsSection" class="content-section hidden" aria-labelledby="resultsHeading">
+          <div class="back-row"><button class="back-link" id="backToClasses" type="button"><span aria-hidden="true">←</span> Ganti kelas</button><div class="result-crumb" id="resultCrumb">Bahasa Indonesia <span>›</span> Kelas 7 A</div></div>
+          <div class="result-heading"><div><span class="section-kicker">HASIL UJIAN SISWA</span><h2 id="resultsHeading">Rekap nilai <span id="classInTitle">VII A</span></h2><p id="resultSubjectLabel">Bahasa Indonesia</p></div><span class="kkm-label"><span class="small-dot"></span> KKM: <strong id="kkmDisplay">75</strong></span></div>
+
+          <div class="stats-grid" aria-label="Ringkasan nilai">
+            <div class="stat-card"><div class="stat-icon violet"><svg viewBox="0 0 24 24" fill="none"><path d="M16 20v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2m13-11a4 4 0 0 1 0 8m5 3v-2a4 4 0 0 0-3-3.88" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="9.5" cy="7" r="4" stroke="currentColor" stroke-width="1.8"/></svg></div><div><small>Jumlah siswa</small><strong id="totalCount">—</strong></div></div>
+            <div class="stat-card"><div class="stat-icon green"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="m7.5 12.5 3 3 6-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><small>Sukses</small><strong id="successCount">—</strong></div></div>
+            <div class="stat-card"><div class="stat-icon red"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v6m0 4h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><div><small>Perlu remidi</small><strong id="remidiCount">—</strong></div></div>
+          </div>
+
+          <div class="table-card">
+            <div class="table-toolbar"><div><h3>Daftar hasil ujian</h3><p id="tableCaption">Menampilkan seluruh siswa</p></div><button type="button" class="refresh-button" id="refreshButton" title="Muat ulang data Google Sheets" aria-label="Perbarui data"><svg viewBox="0 0 24 24" fill="none"><path d="M20 7v5h-5M4 17v-5h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.8 9.2A7 7 0 0 1 18.9 7L20 12M4 12l1.1 5A7 7 0 0 0 18.2 14.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Perbarui</span></button></div>
+            <div class="filters"><label class="search-wrap"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8" stroke="currentColor" stroke-width="2"/><path d="m16 16 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span class="sr-only">Cari nama siswa</span><input id="searchInput" type="search" autocomplete="off" placeholder="Cari nama siswa..." /></label><div class="filter-pills" role="group" aria-label="Filter berdasarkan keterangan"><button class="filter-pill selected" data-filter="all" type="button" aria-pressed="true">Semua</button><button class="filter-pill" data-filter="success" type="button" aria-pressed="false">Sukses</button><button class="filter-pill" data-filter="remidi" type="button" aria-pressed="false">Remidi</button></div></div>
+            <div class="table-scroll"><table class="grades-table"><thead><tr><th scope="col">NO</th><th scope="col">NAMA SISWA</th><th scope="col">NILAI</th><th scope="col">KETERANGAN</th></tr></thead><tbody id="gradesBody"></tbody></table></div>
+            <div id="emptyState" class="empty-state hidden"><span aria-hidden="true">☁</span><strong>Belum ada data yang cocok.</strong><p>Silakan coba nama atau filter lainnya.</p></div>
+            <div class="table-footer"><span id="rowInfo">—</span><span id="syncInfo" aria-live="polite">Menyiapkan data...</span></div>
+          </div>
+          <div id="dataWarning" class="data-warning hidden" role="status"></div>
+        </section>
+      </section>
+      <div class="below-workspace"><span class="footer-star" aria-hidden="true">✧</span><span>Terus belajar, terus bertumbuh. Setiap usaha berarti.</span><span class="footer-star" aria-hidden="true">✧</span></div>
+    </main>
+    <footer class="footer"><span>© <span id="footerYear">2026</span> Ruang Nilai.</span><span>Dibuat untuk memudahkan akses hasil belajar.</span></footer>
+  </div>
+</body>
+</html>
